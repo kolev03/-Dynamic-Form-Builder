@@ -20,13 +20,18 @@ function handleAdd(btn) {
 function removeField(id) {
   fields.value = fields.value.filter((field) => field.id !== id);
 }
+
+function updateField({ id, value }) {
+  const f = fields.value.find((f) => f.id === id);
+  if (f) f.value = value;
+}
 </script>
 
 <template>
   <div class="main-body">
     <FieldPallet @add="handleAdd" />
-    <FormBuilder @remove="removeField" :fields="fields"  />
-    <JsonSchemaPreview></JsonSchemaPreview>
+    <FormBuilder @remove="removeField" :fields="fields" @update="updateField" />
+    <JsonSchemaPreview :fields="fields"></JsonSchemaPreview>
   </div>
 </template>
 

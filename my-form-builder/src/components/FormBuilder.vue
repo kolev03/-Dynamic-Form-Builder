@@ -11,6 +11,12 @@ let props = defineProps({
 function removeField(id) {
   emit("remove", id);
 }
+
+function changeValue(id, event) {
+  const newValue = event.target.value;
+
+  emit("update", { id, value: newValue });
+}
 </script>
 
 <template>
@@ -21,10 +27,16 @@ function removeField(id) {
         v-if="field.type === 'text'"
         type="text"
         :placeholder="field.label"
+        @change="changeValue(field.id, $event)"
       />
-      <input v-else-if="field.type === 'date'" type="date" />
-      <select v-else>
+      <input
+        v-else-if="field.type === 'date'"
+        type="date"
+        @change="changeValue(field.id, $event)"
+      />
+      <select v-else @change="changeValue(field.id, $event)">
         <option>Option 1</option>
+        <option>Option 2</option>
       </select>
 
       <button type="button" @click="removeField(field.id)">Remove</button>
@@ -47,5 +59,18 @@ input,
 select {
   border: none;
   font-size: 1.25rem;
+}
+
+button {
+  background-color: red;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  padding: 3px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(189, 9, 9);
 }
 </style>
