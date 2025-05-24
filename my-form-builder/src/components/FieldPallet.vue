@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
+
+const emit = defineEmits(["add"]);
 
 const buttons = ref([
   { label: "Text Input", type: "text" },
@@ -7,8 +9,8 @@ const buttons = ref([
   { label: "Dropdown", type: "select" },
 ]);
 
-function addField(params) {
-  console.log(params);
+function addField(btn) {
+  emit("add", btn);
 }
 </script>
 
@@ -19,7 +21,7 @@ function addField(params) {
       <button
         v-for="btn in buttons"
         :key="btn.type"
-        @click="addField(btn.type)"
+        @click="addField(btn)"
       >
         {{ btn.label }}
       </button>
@@ -40,3 +42,4 @@ button {
   font-size: 1.25rem;
 }
 </style>
+
