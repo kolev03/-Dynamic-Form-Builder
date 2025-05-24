@@ -1,8 +1,9 @@
 <script setup></script>
 
-<template class="main-column">
-  <h1>Field Pallet</h1>
+<template>
+  <div class="main-column">
+    <h1>Field Pallet</h1>
+  </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -12,6 +12,4 @@ import JsonSchemaPreview from "./components/JsonSchemaPreview.vue";
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,7 +1,9 @@
 <script setup></script>
 
-<template class="main-column">
-  <h1>JSON</h1>
+<template>
+  <div class="main-column">
+    <h1>JSON</h1>
+  </div>
 </template>
 
 <style scoped>
