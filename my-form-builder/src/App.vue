@@ -5,15 +5,22 @@ import JsonSchemaPreview from "./components/JsonSchemaPreview.vue";
 import { ref } from "vue";
 
 const fields = ref([]);
-
 let idForm = 0;
 
 function handleAdd(btn) {
   idForm++;
+  let labelValue = "";
+  if (btn.type === "date") {
+    labelValue = "No Date Selected";
+  } else if (btn.type === "select") {
+    labelValue = "Option 1";
+  } else if (btn.type === "text") {
+    labelValue = btn.label;
+  }
   fields.value.push({
     id: idForm,
     type: btn.type,
-    label: `New ${btn.label}`,
+    label: labelValue,
   });
 }
 
@@ -22,8 +29,8 @@ function removeField(id) {
 }
 
 function updateField({ id, value }) {
-  const f = fields.value.find((f) => f.id === id);
-  if (f) f.value = value;
+  const field = fields.value.find((field) => field.id === id);
+  if (field) field.label = value;
 }
 </script>
 

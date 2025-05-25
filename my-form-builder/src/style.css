@@ -13,10 +13,11 @@
   background-color: white;
   margin: auto;
   border-radius: 20px;
+  overflow-y: auto;
 }
 
-.main-column h1{
-    margin: 10px;
+.main-column h1 {
+  margin: 10px;
 }
 
 .main-body {
@@ -25,4 +26,20 @@
   height: 100vh;
   display: flex;
   justify-content: space-around;
+}
+
+@media screen and (max-width: 1150px) {
+  .main-body {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-column{
+    margin-top: 10px;
+    width: 95%;
+    min-height: 20vh;
+  }
+  .text-container{
+    height: 60%;
+  }
 }

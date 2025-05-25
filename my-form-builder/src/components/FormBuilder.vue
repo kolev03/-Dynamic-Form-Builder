@@ -26,7 +26,7 @@ function changeValue(id, event) {
       <input
         v-if="field.type === 'text'"
         type="text"
-        :placeholder="field.label"
+        placeholder="Text Label"
         @change="changeValue(field.id, $event)"
       />
       <input
@@ -35,8 +35,9 @@ function changeValue(id, event) {
         @change="changeValue(field.id, $event)"
       />
       <select v-else @change="changeValue(field.id, $event)">
-        <option>Option 1</option>
+        <option selected>Option 1</option>
         <option>Option 2</option>
+        <option>Option 3</option>
       </select>
 
       <button type="button" @click="removeField(field.id)">Remove</button>
