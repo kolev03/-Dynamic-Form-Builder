@@ -43,7 +43,7 @@ function generateJSONwithoutID(field) {
 
 @media screen and (max-width: 1150px) {
   .text-container {
-    height: 60%;
+    height: 70%;
   }
 }
 </style>

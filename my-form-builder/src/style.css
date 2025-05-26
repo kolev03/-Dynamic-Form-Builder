@@ -34,12 +34,13 @@
     gap: 10px;
   }
 
-  .main-column{
+  .main-column:first-child {
+    height: min-content;
+  }
+
+  .main-column {
     margin-top: 10px;
     width: 95%;
     min-height: 20vh;
-  }
-  .text-container{
-    height: 60%;
   }
 }
